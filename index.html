@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌐 WebSnap 🌐 – Explore a New Internet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: #00ffcc;
+      overflow: hidden;
+    }
+
+    body {
+      background: #000;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 1;
+      filter: brightness(0.6);
+    }
+
+    .content {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      color: #00ffcc;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .typing-line {
+      font-size: 1.2rem;
+      color: #ffffffcc;
+      margin-top: 10px;
+    }
+
+    .download-section {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .download-section p {
+      color: #ffffffcc;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a.download-btn {
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    a.download-btn:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop playsinline>
+    <source src="5607784-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="content">
+    <h1>🌐 WebSnap</h1>
+    <div class="typing-line" id="line1"></div>
+    <div class="typing-line" id="line2"></div>
+    <div class="typing-line" id="line3"></div>
+  </div>
+
+  <div class="download-section">
+    <p>Download the latest APK for WebSnap and browse with privacy. No history, no trackers—just you and the web.</p>
+    <a class="download-btn" href="app-release.apk" download>Download WebSnap </a>
+    <footer>&copy; 2025 WebSnap – Founder & CEO – Brian Jerral Wesson</footer>
+  </div>
+
+  <script>
+    const lines = [
+      "Explore a new internet with a social network feel",
+      "Founder & CEO – Brian Jerral Wesson",
+      "RoundRock, TX"
+    ];
+
+    let currentLine = 0;
+    let currentChar = 0;
+
+    function typeLine() {
+      if (currentLine < lines.length) {
+        const id = "line" + (currentLine + 1);
+        const el = document.getElementById(id);
+        if (currentChar < lines[currentLine].length) {
+          el.innerHTML += lines[currentLine][currentChar];
+          currentChar++;
+          setTimeout(typeLine, 50);
+        } else {
+          currentChar = 0;
+          currentLine++;
+          setTimeout(typeLine, 500);
+        }
+      }
+    }
+
+    typeLine();
+  </script>
+</body>
+</html>
