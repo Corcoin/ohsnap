@@ -86,6 +86,26 @@
       background-color: #45a049;
     }
 
+    #install-instructions {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+      color: #ccc;
+    }
+
+    #install-instructions h3 {
+      color: #00ffcc;
+    }
+
+    #install-instructions ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #install-instructions li {
+      margin: 10px 0;
+    }
+
     footer {
       margin-top: 20px;
       font-size: 0.9rem;
@@ -129,10 +149,21 @@
     <div class="typing-line" id="line3"></div>
   </div>
 
-  <div class="download-section">
+  <div class="download-section" id="download-section">
     <p>Download the latest APK for WebSnap and browse with privacy. No history, no trackers—just you and the web.</p>
     <p>Only for Android users now. iOS is coming soon.</p>
-    <a class="download-btn" href="app-release.apk" download>Download WebSnap</a>
+    <a class="download-btn" href="app-release.apk" download onclick="showInstallInstructions()">Download WebSnap</a>
+
+    <div id="install-instructions">
+      <h3>📲 Installation Steps:</h3>
+      <ul>
+        <li>1. Once downloaded, open your notification bar or downloads folder.</li>
+        <li>2. Tap on <strong>WebSnap APK</strong> to start the installation.</li>
+        <li>3. If prompted, allow “Install from unknown sources”.</li>
+        <li>4. Tap <strong>Install</strong> and enjoy WebSnap!</li>
+      </ul>
+    </div>
+
     <footer>&copy; 2025 WebSnap – Founder & CEO – Brian Jerral Wesson</footer>
   </div>
 
@@ -160,6 +191,12 @@
           setTimeout(typeLine, 500);
         }
       }
+    }
+
+    function showInstallInstructions() {
+      const instructions = document.getElementById('install-instructions');
+      instructions.style.display = 'block';
+      instructions.scrollIntoView({ behavior: 'smooth' });
     }
 
     typeLine();
